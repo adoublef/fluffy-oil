@@ -1,15 +1,21 @@
 @layer color {
     :root {
         --color-scheme: light;
-        --color-text: 0% 0 0;
-        --color-background: 100% 0 180;
+        --color-text: 3.74% 3.02 116.48;
+        --color-background: 93.53% 8.75 114.19;
+        --color-primary: 67.53% 27.18 297.15;
+        --color-secondary: 85.85% 13.37 328.83;
+        --color-accent: 37.51% 49.26 301;
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
             --color-scheme: dark;
-            --color-text: 100% 0 180;
-            --color-background: 0% 0 0;
+            --color-text: 97.33% 3.57 115.49;
+            --color-background: 12.55% 11.77 112.25;
+            --color-primary: 22.42% 32.81 300.24;
+            --color-secondary: 12.21% 17.57 330.63;
+            --color-accent: 45.82% 47.66 299.87;
         }
     }
 
