@@ -10,7 +10,7 @@ RUN deno cache deps.ts
 
 ADD . .
 
-RUN deno cache cmd/reliable-handbell/main.ts
+RUN deno cache cmd/fluffy-oil/main.ts
 
 # ? --------------------------------
 
@@ -27,4 +27,4 @@ COPY . .
 
 CMD ["./deno", "task", "start"]
 
-EXPOSE 8000
+EXPOSE 4507

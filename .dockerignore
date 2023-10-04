@@ -2,4 +2,4 @@
 !deno.*
 !deps.ts
 !cmd
-!lib
+!static

@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "example": "deno run --allow-read --allow-net --watch=static/ cmd/hono/main.ts",
+        "test": "deno run --allow-read --allow-net --watch=static/ cmd/test/main.ts",
         "start": "deno run --allow-read --allow-net --watch=static/ cmd/fluffy-oil/main.ts"
     },
     "imports": {
