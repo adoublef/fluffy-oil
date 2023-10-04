@@ -1,7 +1,8 @@
 {
     "tasks": {
-        "test": "deno run --allow-read --allow-net --watch=static/ cmd/test/main.ts",
-        "start": "deno run --allow-read --allow-net --watch=static/ cmd/fluffy-oil/main.ts"
+        "test": "deno run --allow-read --allow-net cmd/test/main.ts",
+        "watch": "deno run --watch --allow-read --allow-net cmd/fluffy-oil/main.ts",
+        "start": "deno run --allow-read --allow-net cmd/fluffy-oil/main.ts"
     },
     "imports": {
         "$std/": "https://deno.land/std@0.203.0/",
