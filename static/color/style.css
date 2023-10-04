@@ -1,0 +1,21 @@
+@layer color {
+    :root {
+        --color-scheme: light;
+        --color-text: 0% 0 0;
+        --color-background: 100% 0 180;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-scheme: dark;
+            --color-text: 100% 0 180;
+            --color-background: 0% 0 0;
+        }
+    }
+
+    :where(:root) {
+        color-scheme: var(--color-scheme);
+        color: lch(var(--color-text));
+        background-color: lch(var(--color-background));
+    }
+}

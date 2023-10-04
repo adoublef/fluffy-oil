@@ -1,0 +1,10 @@
+@layer composition {
+    :where(main, .wrapper) {
+        width: min(100% - 3rem, 75ch);
+        margin-inline: auto;
+    }
+
+    :where(article, .flow) > * + * {
+        margin-top: 1em;
+    }
+}

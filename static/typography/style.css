@@ -1,0 +1,122 @@
+/* ----------------------------------------------------------------
+width: 320, font-size: 16, type-scale: 1.125 (major second)
+width: 1440, font-size: 20, type-scale: 1.25 (major third)
+
+@link https://utopia.fyi/type/calculator?c=320,16,1.125,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 
+
+Letter Spacing recommendation
+
+@link https://theappbusiness.github.io/accessibility-guidelines/guidelines/1.4.12.html
+---------------------------------------------------------------- */
+@layer typography {
+    @font-face {
+        font-family: Poppins;
+        src: url(/4/poppins.ttf) format(truetype);
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: Poppins;
+        src: url(/7/poppins.ttf) format(truetype);
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    :root {
+        --font-family-heading: Poppins;
+        --font-family-body: Poppins;
+        --font-size-900: clamp(1.8019rem, 1.2267rem + 2.8759vw, 3.815rem);
+        --font-size-800: clamp(1.4238rem, 1.133rem + 1.4536vw, 2.4413rem);
+        --font-size-700: clamp(1.4238rem, 1.133rem + 1.4536vw, 2.4413rem);
+        --font-size-600: clamp(1.2656rem, 1.0692rem + 0.9821vw, 1.9531rem);
+        --font-size-500: clamp(1.125rem, 1rem + 0.625vw, 1.5625rem);
+        --font-size-400: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+        --font-size-300: clamp(0.8888rem, 0.857rem + 0.1589vw, 1rem);
+        --font-size-200: clamp(0.79rem, 0.7871rem + 0.0143vw, 0.8rem);
+        --font-size: var(--font-size-400);
+        --font-weight: normal;
+        --line-height: 1.5;
+        /* --letter-spacing: .012rem; */
+        /* --word-spacing: .016rem; */
+    }
+
+    :where(:root) {
+        font-family: var(--font-family-body);
+        font-size: var(--font-size);
+    }
+
+    h1,
+    h2,
+    h3 {
+        --font-weight: bolder
+    }
+
+    h1 {
+        --font-size: var(--font-size-900);
+    }
+
+    h2 {
+        --font-size: var(--font-size-800);
+    }
+
+    h3 {
+        --font-size: var(--font-size-700);
+    }
+
+    h4 {
+        --font-size: var(--font-size-600);
+    }
+
+    h5 {
+        --font-size: var(--font-size-500);
+    }
+
+    h6 {
+        --font-size: var(--font-size-400);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+    }
+
+    address,
+    blockquote,
+    dl,
+    figure,
+    form,
+    ol,
+    p,
+    pre,
+    table,
+    ul {
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        font-style: normal;
+        margin-top: 0;
+    }
+
+    small,
+    sub,
+    sup {
+        --font-size: var(--font-size-200);
+    }
+
+    small,
+    sub,
+    sup {
+        font-size: var(--font-size);
+    }
+
+    b,
+    strong {
+        font-weight: bolder;
+    }
+}
