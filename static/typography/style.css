@@ -26,14 +26,16 @@ Letter Spacing recommendation
     :root {
         --font-family-heading: Poppins;
         --font-family-body: Poppins;
-        --font-size-900: clamp(1.8019rem, 1.2267rem + 2.8759vw, 3.815rem);
-        --font-size-800: clamp(1.4238rem, 1.133rem + 1.4536vw, 2.4413rem);
-        --font-size-700: clamp(1.4238rem, 1.133rem + 1.4536vw, 2.4413rem);
-        --font-size-600: clamp(1.2656rem, 1.0692rem + 0.9821vw, 1.9531rem);
-        --font-size-500: clamp(1.125rem, 1rem + 0.625vw, 1.5625rem);
-        --font-size-400: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
-        --font-size-300: clamp(0.8888rem, 0.857rem + 0.1589vw, 1rem);
-        --font-size-200: clamp(0.79rem, 0.7871rem + 0.0143vw, 0.8rem);
+
+        --font-size-200: clamp(0.6331rem, 0.7119rem + -0.0875vw, 0.6944rem);
+        --font-size-300: clamp(0.8331rem, 0.8301rem + 0.0152vw, 0.8438rem);
+        --font-size-400: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+        --font-size-500: clamp(1.2rem, 1.1145rem + 0.4277vw, 1.4994rem);
+        --font-size-600: clamp(1.44rem, 1.2804rem + 0.7982vw, 1.9988rem);
+        --font-size-700: clamp(1.7281rem, 1.4606rem + 1.3375vw, 2.6644rem);
+        --font-size-800: clamp(2.0738rem, 1.6514rem + 2.1116vw, 3.5519rem);
+        --font-size-900: clamp(2.4881rem, 1.8462rem + 3.2098vw, 4.735rem);
+
         --font-size: var(--font-size-400);
         --font-weight: normal;
         --line-height: 1.5;
