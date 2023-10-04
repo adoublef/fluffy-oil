@@ -1,13 +1,3 @@
-/* ----------------------------------------------------------------
-width: 320, font-size: 16, type-scale: 1.125 (major second)
-width: 1440, font-size: 20, type-scale: 1.25 (major third)
-
-@link https://utopia.fyi/type/calculator?c=320,16,1.125,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 
-
-Letter Spacing recommendation
-
-@link https://theappbusiness.github.io/accessibility-guidelines/guidelines/1.4.12.html
----------------------------------------------------------------- */
 @layer typography {
     @font-face {
         font-family: Poppins;
@@ -23,25 +13,29 @@ Letter Spacing recommendation
         font-style: normal;
     }
 
+  
     :root {
         --font-family-heading: Poppins;
         --font-family-body: Poppins;
 
-        --font-size-200: clamp(0.6331rem, 0.7119rem + -0.0875vw, 0.6944rem);
-        --font-size-300: clamp(0.8331rem, 0.8301rem + 0.0152vw, 0.8438rem);
+        /* ----------------------------------------------------------------
+        width: 320, font-size: 16, type-scale: 1.2
+        width: 1440, font-size: 18, type-scale: 1.333
+
+        @link https://utopia.fyi/type/calculator/?c=320,16,1.2,1440,18,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+        ---------------------------------------------------------------- */
+        --font-size-200:  clamp(0.6331rem, 0.8348rem + -0.2241vw, 0.79rem);
+        --font-size-300:  clamp(0.8438rem, 0.9016rem + -0.0643vw, 0.8888rem);
         --font-size-400: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
-        --font-size-500: clamp(1.2rem, 1.1145rem + 0.4277vw, 1.4994rem);
-        --font-size-600: clamp(1.44rem, 1.2804rem + 0.7982vw, 1.9988rem);
-        --font-size-700: clamp(1.7281rem, 1.4606rem + 1.3375vw, 2.6644rem);
-        --font-size-800: clamp(2.0738rem, 1.6514rem + 2.1116vw, 3.5519rem);
-        --font-size-900: clamp(2.4881rem, 1.8462rem + 3.2098vw, 4.735rem);
+        --font-size-500: clamp(1.125rem, 1.018rem + 0.5348vw, 1.4994rem);
+        --font-size-600: clamp(1.2656rem, 1.0562rem + 1.0473vw, 1.9988rem);
+        --font-size-700: clamp(1.4238rem, 1.0693rem + 1.7723vw, 2.6644rem);
+        --font-size-800: clamp(1.6019rem, 1.0447rem + 2.7857vw, 3.5519rem);
+        --font-size-900: clamp(1.8019rem, 0.9638rem + 4.1902vw, 4.735rem);
 
         --font-size: var(--font-size-400);
         --font-weight: normal;
         --line-height: 1.5;
-        
-        /* --letter-spacing: .012rem; */
-        /* --word-spacing: .016rem; */
     }
 
     :where(:root) {
@@ -121,5 +115,47 @@ Letter Spacing recommendation
     b,
     strong {
         font-weight: bolder;
+    }
+
+    /* utilities */
+
+    .text-xs {
+        font-size: var(--font-size-200);
+    }
+
+    .text-sm {
+        font-size: var(--font-size-300);
+    }
+
+    .text-base {
+        font-size: var(--font-size-400);
+    }
+
+    .text-lg {
+        font-size: var(--font-size-500);
+    }
+
+    .text-xl {
+        font-size: var(--font-size-600);
+    }
+
+    .text-2xl {
+        font-size: var(--font-size-700);
+    }
+
+    .text-3xl {
+        font-size: var(--font-size-800);
+    }
+
+    .text-4xl {
+        font-size: var(--font-size-900);
+    }
+
+    .font-normal {
+        font-weight: 400;
+    }
+
+    .font-bold {
+        font-weight: 700;
     }
 }
