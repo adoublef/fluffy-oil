@@ -1,0 +1,5 @@
+*
+!deno.*
+!deps.ts
+!cmd
+!lib

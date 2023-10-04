@@ -1,0 +1,19 @@
+version: 3
+
+tasks:
+  cache:
+    cmd: deno cache deps.ts 
+
+  dev:
+    deps:
+      - cache
+    cmd: infisical run --env=dev --path=fluffy-oil -- deno task start
+
+  env:
+    cmds:
+      - infisical secrets --env=dev --path=fluffy-oil {{.CLI_ARGS}}
+
+  img:
+    cmds: 
+      - docker build -t fluffy-oil .
+      - docker run --rm -p 8000:8000 fluffy-oil

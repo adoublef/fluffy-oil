@@ -1,0 +1,23 @@
+name: Fly
+
+on:
+  push:
+    branches: 
+      -  main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      -
+        name: 🚚 Checkout Repository
+        uses: actions/checkout@v3
+      -
+        name: 🪄 Setup Fly CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+      - 
+        name: 🛳️ Deploy to Fly
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

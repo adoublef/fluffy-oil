@@ -1,7 +1,7 @@
 {
     "tasks": {
-        "hono": "deno run --allow-read --allow-net --watch=static/ cmd/hono/main.ts",
-        "std": "deno run --allow-read --allow-net --watch=static/ cmd/fluffy-oil/main.ts"
+        "example": "deno run --allow-read --allow-net --watch=static/ cmd/hono/main.ts",
+        "start": "deno run --allow-read --allow-net --watch=static/ cmd/fluffy-oil/main.ts"
     },
     "imports": {
         "$std/": "https://deno.land/std@0.203.0/",
