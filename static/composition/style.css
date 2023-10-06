@@ -7,4 +7,11 @@
     :where(article, .flow) > * + * {
         margin-top: 1em;
     }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+    }
 }
