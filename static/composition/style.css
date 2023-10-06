@@ -8,6 +8,7 @@
         margin-top: 1em;
     }
 
+    /* assumption that there will be header,main,body */
     body {
         min-height: 100vh;
         min-height: 100dvh;
