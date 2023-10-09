@@ -366,6 +366,7 @@ progress[value]::-webkit-progress-value {
     cursor: progress;
 }
 
+/* TODO -- align with text better */
 [aria-busy=true]:not(input, select, textarea, html)::before {
     content: "";
     vertical-align: middle;
