@@ -1,4 +1,4 @@
-import { Hono, etag, cache } from "~/deps.ts";
+import { Hono, etag, cache, cors } from "~/deps.ts";
 import { serve } from "~/lib/serve.ts";
 import { serveStatic } from "~/lib/serve_static.ts";
 import { handleIndex } from "./handle_index.tsx";
@@ -8,10 +8,11 @@ if (
     import.meta.main
 ) {
     const app = new Hono()
-        .use(etag({ weak: true }));
+        .use("*", etag({ weak: true }))
+        .use("*", cors());
 
     app.get("/", handleIndex());
-    app.get("/blog", handleBlog())
+    app.get("/blog", handleBlog());
 
     app.use("/stylesheets/*", serveStatic({ root: "stylesheets/", replace: /^\/stylesheets/ }));
     app.use("/scripts/*", serveStatic({ root: "scripts/", replace: /^\/scripts/ }));
