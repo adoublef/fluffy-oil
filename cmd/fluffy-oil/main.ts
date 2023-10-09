@@ -1,18 +1,22 @@
-import { serveDir } from "~/deps.ts";
+import { Hono, etag, cache } from "~/deps.ts";
+import { serve } from "~/lib/serve.ts";
+import { serveStatic } from "~/lib/serve_static.ts";
+import { handleIndex } from "./handle_index.tsx";
+import { handleBlog } from "./handle_blog.tsx";
 
 if (
     import.meta.main
 ) {
-    const handler = (req: Request): Promise<Response> => {
-        return serveDir(req, {
-            fsRoot: "./static",
-            showDirListing: false,
-            showDotfiles: false,
-            enableCors: true,
-            //   quiet: !serverArgs.verbose,
-            //   headers,
-        });
-    };
+    const app = new Hono()
+        .use(etag({ weak: true }));
 
-    await Deno.serve({ port: 4507 }, handler).finished;
+    app.get("/", handleIndex());
+    app.get("/blog", handleBlog())
+
+    app.use("/stylesheets/*", serveStatic({ root: "stylesheets/", replace: /^\/stylesheets/ }));
+    app.use("/scripts/*", serveStatic({ root: "scripts/", replace: /^\/scripts/ }));
+    app.use("/fonts/*", cache({ wait: true, cacheControl: "max-age=60", cacheName: "fonts" })
+        , serveStatic({ root: "fonts/", replace: /^\/fonts/ }));
+
+    await serve(app, { port: 4507 });
 }
