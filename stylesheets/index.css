@@ -1,0 +1,411 @@
+/* Base */
+*,
+*::before,
+*::after {
+    box-sizing: var(--border-box, border-box);
+    background-repeat: var(--no-repeat, no-repeat);
+}
+
+::after,
+::before {
+    text-decoration: var(--inherit, inherit);
+    vertical-align: var(--inherit, inherit);
+}
+
+* {
+    margin: var(--margin, 0);
+}
+
+html {
+    -moz-text-size-adjust: var(--text-size-adjust, none);
+    -webkit-text-size-adjust: var(--text-size-adjust, none);
+    text-size-adjust: var(--text-size-adjust, none);
+}
+
+body {
+    line-height: var(--line-height);
+    -webkit-font-smoothing: var(--font-smoothing);
+}
+
+/* ./Base */
+
+/* Color */
+/* ./Color */
+
+/* Typography */
+@font-face {
+    /* @link https://www.lexend.com/ */
+    font-family: 'Lexend';
+    src: url('/fonts/v/lexend.woff2') format('woff2'), url('/fonts/v/lexend.tff') format('tff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    /* @link https://www.lexend.com/ */
+    font-family: 'Lexend';
+    src: url('/fonts/v/lexend.woff2') format('woff2'), url('/fonts/v/lexend.tff') format('tff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    /* @link https://floriankarsten.github.io/space-grotesk/ */
+    font-family: 'Space Grotesk';
+    src: url('/fonts/v/space_grotesk.woff2') format('woff2'), url('/fonts/v/space_grotesk.tff') format('tff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    /* @link https://floriankarsten.github.io/space-grotesk/ */
+    font-family: 'Space Grotesk';
+    src: url('/fonts/v/space_grotesk.woff2') format('woff2'), url('/fonts/v/space_grotesk.tff') format('tff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @link https://andy-bell.co.uk/a-more-modern-css-reset */
+/* @link https://www.joshwcomeau.com/css/custom-css-reset */
+/* --box-sizing: border-box; */
+/* --margin: 0; */
+/* --text-size-adjust: none; */
+/* --overflow-wrap: break-word; */
+/* --line-height: 1.5; */
+/* --font-smoothing: antialiased; */
+
+:root {
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1440,18,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --font-size-200: clamp(0.6331rem, 0.8348rem + -0.2241vw, 0.79rem);
+    --font-size-300: clamp(0.8438rem, 0.9016rem + -0.0643vw, 0.8888rem);
+    --font-size-400: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    --font-size-500: clamp(1.125rem, 1.018rem + 0.5348vw, 1.4994rem);
+    --font-size-600: clamp(1.2656rem, 1.0562rem + 1.0473vw, 1.9988rem);
+    --font-size-700: clamp(1.4238rem, 1.0693rem + 1.7723vw, 2.6644rem);
+    --font-size-800: clamp(1.6019rem, 1.0447rem + 2.7857vw, 3.5519rem);
+    --font-size-900: clamp(1.8019rem, 0.9638rem + 4.1902vw, 4.735rem);
+    --font-family-400: 'Lexend';
+    --font-family-700: 'Space Grotesk';
+}
+
+* {
+    font-family: var(--font-family, var(--font-family-400));
+    font-size: var(--font-size, var(--font-size-400));
+    font-weight: var(--font-weight, 400);
+    text-transform: var(--text-transform, none);
+    text-wrap: var(--text-wrap, pretty);
+}
+
+/* font-family */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    --font-family: var(--font-family-700);
+}
+
+/* font-weight */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+    --font-weight: 700;
+}
+
+/* font-size */
+
+h1 {
+    --font-size: var(--font-size-900);
+}
+
+h2 {
+    --font-size: var(--font-size-800);
+}
+
+h3 {
+    --font-size: var(--font-size-700);
+}
+
+h4 {
+    --font-size: var(--font-size-600);
+}
+
+h5 {
+    --font-size: var(--font-size-500);
+}
+
+h6 {
+    --font-size: var(--font-size-400);
+}
+
+small,
+sub,
+sup {
+    --font-size: var(--font-size-200);
+}
+
+/* text-wrap */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    --text-wrap: balance;
+}
+
+/* text-transform */
+
+/* text-decoration */
+
+[role=link],
+a,
+abbr,
+del,
+u,
+ins,
+s {
+    text-decoration-thickness: var(--text-decoration-thickness, .1em);
+}
+
+/* ./Typography */
+
+/* Color */
+:root {
+    --color-scheme: light;
+    --color-text: lch(1.7% 2.31 318.86);
+    --color-background: lch(99.06% 0.61 324.24);
+    --color-primary: lch(74.85% 35.69 241.26);
+    --color-secondary: lch(87.46% 25.45 319.3);
+    --color-accent: lch(56.3% 83.19 48.13);
+    /* NOTE --this breaks in dark-mode */
+    --border-color: black;
+    --border: .1em solid var(--border-color);
+    --box-shadow: .25em .375em 0 var(--border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-scheme: dark;
+        --color-text: lch(96.96% 2.92 318.88);
+        --color-background: lch(0.62% 0.48 325);
+        --color-primary: lch(46.92% 33.37 251.62);
+        --color-secondary: lch(6.36% 32 320.99);
+        --color-accent: lch(56.3% 83.19 48.13);
+    }
+}
+
+:where(:root) {
+    color-scheme: var(--color-scheme);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+[role=link],
+a,
+abbr,
+del,
+u,
+ins,
+s {
+    color: var(--color, inherit);
+    text-decoration-color: var(--text-decoration-color, var(--color-accent));
+}
+
+mark {
+    background-color: var(--color-primary);
+}
+
+/* ./Color */
+
+/* Media */
+:where(audio, canvas, iframe, img, svg, video) {
+    vertical-align: middle;
+}
+
+audio,
+video {
+    display: inline-block;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+:where(iframe) {
+    border-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+}
+
+:where(svg:not([fill])) {
+    fill: currentColor;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ./Media */
+
+/* Anchor */
+/* ./Anchor */
+
+/* Button */
+button {
+    display: block;
+    overflow: hidden;
+}
+
+[role=button] {
+    display: inline-block;
+    text-decoration: none;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+    --font-size: var(--font-size-300);
+    -webkit-appearance: button;
+    appearance: button;
+}
+
+[role=button],
+button,
+input:where([type=button], [type=reset], [type=submit]) {
+    --font-family: var(--font-family-700);
+    --text-transform: uppercase;
+    --font-size: var(--font-size-300);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-secondary);
+    padding: .25rem .5rem;
+    border-radius: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ./Button */
+
+/* Progress */
+progress {
+    border: var(--border);
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: hidden;
+    display: inline-block;
+    height: .5rem;
+    /* vertical-align: baseline; */
+    /* margin-block: calc(1em * .25); */
+}
+
+progress::-webkit-progress-bar {
+    /* border-radius: var(--border-radius); */
+    background: 0 0;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--color-accent);
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    progress:indeterminate {
+        background: var(--color-accent) linear-gradient(to right, var(--color-primary) 30%, var(--color-accent) 30%) top left/150% 150% no-repeat;
+        animation: progress-indeterminate 1s linear infinite
+    }
+
+    progress:indeterminate[value]::-webkit-progress-value {
+        background-color: transparent;
+    }
+
+    progress:indeterminate::-moz-progress-bar {
+        background-color: transparent;
+    }
+}
+
+@keyframes progress-indeterminate {
+    0% {
+        background-position: 200% 0
+    }
+
+    100% {
+        background-position: -200% 0
+    }
+}
+
+/* ./Progress */
+
+/* Loading */
+[aria-busy=true] {
+    cursor: progress;
+}
+
+[aria-busy=true]:not(input, select, textarea, html)::before {
+    content: "";
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    /* vertical-align: -.125em; */
+    border: .2em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 1em;
+    display: inline-block;
+    /* animation: spinner .75s linear infinite; */
+}
+
+[aria-busy=true]:not(input, select, textarea, html):empty {
+    text-align: center;
+}
+
+:where(a, button, input:where([type=button], [type=reset], [type=submit]))[aria-busy=true] {
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    :not([aria-busy=true]),
+    :not([aria-busy=true])::after,
+    :not([aria-busy=true])::before {
+        background-attachment: initial !important;
+        animation-duration: 1ms !important;
+        animation-delay: -1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-delay: 0s !important;
+        transition-duration: 0s !important
+    }
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* ./Loading */

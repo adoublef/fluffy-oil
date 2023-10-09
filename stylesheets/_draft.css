@@ -1,0 +1,332 @@
+@layer reset {
+
+    /* https://andy-bell.co.uk/a-more-modern-css-reset/ */
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        background-repeat: no-repeat
+    }
+
+    ::after,
+    ::before {
+        text-decoration: inherit;
+        vertical-align: inherit
+    }
+
+    html {
+        -moz-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+    }
+}
+
+@layer typography {
+
+    /* https://www.lexend.com/ */
+    @font-face {
+        font-family: 'Lexend';
+        src: url(/fonts/4/lexend.ttf) format(truetype);
+        font-weight: 400;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Lexend';
+        src: url(/fonts/7/lexend.ttf) format(truetype);
+        font-weight: 700;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    /* https://floriankarsten.github.io/space-grotesk/ */
+    @font-face {
+        font-family: 'Space Grotesk';
+        src: url(/fonts/4/space_grotesk.ttf) format(truetype);
+        font-weight: 400;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Space Grotesk';
+        src: url(/fonts/7/space_grotesk.ttf) format(truetype);
+        font-weight: 700;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    :root {
+        --font-family-700: 'Space Grotesk', system-ui;
+        --font-family-400: 'Lexend', system-ui;
+        /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1440,18,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+        --font-size-200: clamp(0.6331rem, 0.8348rem + -0.2241vw, 0.79rem);
+        --font-size-300: clamp(0.8438rem, 0.9016rem + -0.0643vw, 0.8888rem);
+        --font-size-400: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+        --font-size-500: clamp(1.125rem, 1.018rem + 0.5348vw, 1.4994rem);
+        --font-size-600: clamp(1.2656rem, 1.0562rem + 1.0473vw, 1.9988rem);
+        --font-size-700: clamp(1.4238rem, 1.0693rem + 1.7723vw, 2.6644rem);
+        --font-size-800: clamp(1.6019rem, 1.0447rem + 2.7857vw, 3.5519rem);
+        --font-size-900: clamp(1.8019rem, 0.9638rem + 4.1902vw, 4.735rem);
+        --font-family: 'Lexend', system-ui;
+        --font-size: var(--font-size-400);
+        --font-weight: 400;
+        --line-height: 1.5;
+        --text-wrap: pretty;
+    }
+
+    :where(:root) {
+        font-family: var(--font-family);
+        font-size: var(--font-size);
+        text-wrap: var(--text-wrap);
+        line-height: var(--line-height);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    label {
+        --line-height: 1.1;
+        line-height: var(--line-height);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        --font-family: var(--font-family-700);
+    }
+
+    h1,
+    h2,
+    h3 {
+        --font-weight: 700;
+    }
+
+    h1 {
+        --font-size: var(--font-size-900);
+    }
+
+    h2 {
+        --font-size: var(--font-size-800);
+    }
+
+    h3 {
+        --font-size: var(--font-size-700);
+    }
+
+    h4 {
+        --font-size: var(--font-size-600);
+    }
+
+    h5 {
+        --font-size: var(--font-size-500);
+    }
+
+    h6 {
+        --font-size: var(--font-size-400);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        --text-wrap: balance;
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+    }
+
+    address,
+    blockquote,
+    dl,
+    figure,
+    form,
+    ol,
+    p,
+    pre,
+    table,
+    ul {
+        /* margin-top: 0; */
+        font-style: normal;
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+    }
+
+    small,
+    sub,
+    sup,
+    cite {
+        --font-size: var(--font-size-200);
+        font-size: var(--font-size);
+    }
+
+    b,
+    strong {
+        font-weight: 700;
+    }
+}
+
+@layer color {
+    :root {
+        --color-scheme: light;
+        --color-text: 1.7% 2.31 318.86;
+        --color-background: 99.06% 0.61 324.24;
+        --color-primary: 74.85% 35.69 241.26;
+        --color-secondary: 87.46% 25.45 319.3;
+        --color-accent: 56.3% 83.19 48.13;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-scheme: dark;
+            --color-text: 96.96% 2.92 318.88;
+            --color-background: 0.62% 0.48 325;
+            --color-primary: 46.92% 33.37 251.62;
+            --color-secondary: 6.36% 32 320.99;
+            --color-accent: 56.3% 83.19 48.13;
+        }
+    }
+
+    :where(:root) {
+        color-scheme: var(--color-scheme);
+        color: lch(var(--color-text));
+        background-color: lch(var(--color-background));
+    }
+
+    mark {
+        --background-color: lch(var(--color-primary));
+        background-color: var(--background-color);
+    }
+}
+
+@layer composition {
+
+    :where(body) {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    :where(main, .wrapper) {
+        width: min(100% - 3rem, 65ch);
+        margin-inline: auto;
+    }
+
+    :where(article, .flow)>*+* {
+        margin-top: 1em;
+        /* background-color: yellowgreen; */
+    }
+}
+
+@layer block {
+
+    /* Button */
+    button {
+        margin: 0;
+        overflow: visible;
+        font-family: inherit;
+        text-transform: none;
+    }
+
+    [type=button],
+    [type=reset],
+    [type=submit],
+    button {
+        -webkit-appearance: button;
+        appearance: button;
+    }
+
+    button {
+        /* I don't know about this */
+        /* --spacing: 1em; */
+        /* margin-bottom: var(--spacing); */
+        display: block;
+    }
+
+    [role=button] {
+        display: inline-block;
+        text-decoration: none
+    }
+
+    [role=button],
+    button,
+    input:where([type=button], [type=reset], [type=submit]) {
+        --background-color: lch(var(--color-secondary));
+        --border-color: currentColor;
+        --color: inherit;
+        --font-family: var(--font-family-700);
+        font-weight: 700;
+        font-family: var(--font-family);
+        outline: 0;
+        color: var(--color);
+        /* font-weight: var(--font-weight); */
+        /* line-height: var(--line-height); */
+        padding: .5rem 1rem;
+        border: .1em solid var(--border-color);
+        border-radius: 0;
+        background-color: var(--background-color);
+        box-shadow: .25em .375em 0 var(--border-color);
+        font-size: 1rem;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    /* ./Button */
+
+    /* Line Decoration */
+    [role=link],
+    a,
+    abbr,
+    del,
+    u,
+    ins,
+    s {
+        --color: currentColor;
+        --text-decoration-color: lch(var(--color-accent));
+        --text-decoration-thickness: .1em;
+        color: var(--color);
+        text-decoration-color: var(--text-decoration-color);
+        text-decoration-thickness: var(--text-decoration-thickness);
+        text-decoration-skip-ink: auto;
+    }
+
+    /* ./Line Decoration */
+
+    /* Progress */
+    progress {
+        --color: lch(var(--color-accent));
+        --background-color: lch(var(--color-primary));
+        --border-color: inherit;
+    }
+
+    /* ./Progress */
+
+    /* Loading */
+    /* ./Loading */
+}
