@@ -7,7 +7,7 @@ tasks:
   dev:
     deps:
       - cache
-    cmd: infisical run --env=dev --path=fluffy-oil -- deno task start
+    cmd: infisical run --env=dev --path=fluffy-oil -- deno task start --watch=stylesheets,fonts
 
   env:
     cmds:
@@ -20,5 +20,9 @@ tasks:
   
   htmx:
     cmds:
-      - curl -L -o static/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
-      - curl -L -o static/hyperscript.min.js https://unpkg.com/hyperscript.org@latest/dist/_hyperscript.min.js
+      - curl -L -o scripts/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
+      - curl -L -o scripts/hyperscript.min.js https://unpkg.com/hyperscript.org@latest/dist/_hyperscript.min.js
+
+  woff:
+    cmds:
+      - ./bin/woff2_compress {{.CLI_ARGS}}
