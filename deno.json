@@ -6,7 +6,14 @@
     },
     "imports": {
         "$std/": "https://deno.land/std@0.203.0/",
-        "$hono/":"https://deno.land/x/hono@v3.7.3/",
-        "~/deps.ts": "./deps.ts"
+        "$hono/":"https://deno.land/x/hono@v3.7.5/",
+        "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.5/jsx/jsx-runtime.ts",
+        "~/deps.ts": "./deps.ts",
+        "~/lib/": "./lib/",
+        "~/jsx/": "./jsx/"
+    },
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx"
     }
 }
