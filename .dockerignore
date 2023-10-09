@@ -2,4 +2,8 @@
 !deno.*
 !deps.ts
 !cmd
-!static
+!scripts
+!stylesheets
+!fonts
+!lib
+!jsx

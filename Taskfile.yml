@@ -16,7 +16,7 @@ tasks:
   img:
     cmds: 
       - docker build -t fluffy-oil .
-      - docker run --rm -p 4507:4507 fluffy-oil
+      - docker run --rm -p 4507:4507 -d fluffy-oil
   
   htmx:
     cmds:
