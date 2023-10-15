@@ -1,4 +1,4 @@
-import { Hono, etag, cache, cors } from "~/deps.ts";
+import { Hono, etag, cors } from "~/deps.ts";
 import { serve } from "~/lib/serve.ts";
 import { serveStatic } from "~/lib/serve_static.ts";
 import { handleIndex } from "./handle_index.tsx";
@@ -16,8 +16,7 @@ if (
 
     app.use("/stylesheets/*", serveStatic({ root: "stylesheets/", replace: /^\/stylesheets/ }));
     app.use("/scripts/*", serveStatic({ root: "scripts/", replace: /^\/scripts/ }));
-    app.use("/fonts/*", cache({ wait: true, cacheControl: "max-age=60", cacheName: "fonts" })
-        , serveStatic({ root: "fonts/", replace: /^\/fonts/ }));
+    app.use("/fonts/*", serveStatic({ root: "fonts/", replace: /^\/fonts/ }));
 
     await serve(app, { port: 4507 });
 }
