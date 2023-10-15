@@ -39,7 +39,7 @@ body {
     src: url('/fonts/v/lexend.woff2') format('woff2'), url('/fonts/v/lexend.tff') format('tff');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: optional; /* auto | block | swap | fallback | optional */
 }
 
 @font-face {
@@ -48,7 +48,7 @@ body {
     src: url('/fonts/v/lexend.woff2') format('woff2'), url('/fonts/v/lexend.tff') format('tff');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -57,7 +57,7 @@ body {
     src: url('/fonts/v/space_grotesk.woff2') format('woff2'), url('/fonts/v/space_grotesk.tff') format('tff');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -66,7 +66,7 @@ body {
     src: url('/fonts/v/space_grotesk.woff2') format('woff2'), url('/fonts/v/space_grotesk.tff') format('tff');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 /* @link https://andy-bell.co.uk/a-more-modern-css-reset */

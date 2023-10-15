@@ -7,7 +7,7 @@ tasks:
   dev:
     deps:
       - cache
-    cmd: infisical run --env=dev --path=fluffy-oil -- deno task start --watch=stylesheets,fonts
+    cmd: deno task start --watch=stylesheets,fonts
 
   env:
     cmds:
