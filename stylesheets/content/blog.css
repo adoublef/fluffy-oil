@@ -1,0 +1,107 @@
+/* Base */
+*,
+*::before,
+*::after {
+    box-sizing: var(--border-box, border-box);
+    background-repeat: var(--no-repeat, no-repeat);
+}
+
+::after,
+::before {
+    text-decoration: var(--inherit, inherit);
+    vertical-align: var(--inherit, inherit);
+}
+
+* {
+    margin: var(--margin, 0);
+}
+
+html {
+    -moz-text-size-adjust: var(--text-size-adjust, none);
+    -webkit-text-size-adjust: var(--text-size-adjust, none);
+    text-size-adjust: var(--text-size-adjust, none);
+}
+
+body {
+    line-height: var(--line-height);
+    -webkit-font-smoothing: var(--font-smoothing);
+}
+
+/* ./Base */
+
+/* Color */
+* {
+    --scheme: var(--color-scheme, light);
+    --_color: var(--color, #5c6a72);
+    --_background: var(--background-color, #fdf6e3);
+
+    color-scheme: var(--scheme);
+    color: var(--_color);
+    background-color: var(--_background);
+}
+
+/* 
+color
+1: #df69ba
+2: #f85552
+3: #f79a57
+4: #8da101
+5: #fdf6e3
+6: #5c6a72
+*/
+
+h1,h2,h3,h4,h5,h6 {
+    --color: #8da101;
+}
+
+/* ./Color */
+
+/* Typography */
+@font-face {
+    /* @link https://www.ibm.com/plex/ */
+    font-family: 'IBM Plex Mono';
+    src: url('/fonts/4/ibm_plex_mono.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: optional;
+    /* auto | block | swap | fallback | optional */
+}
+
+@font-face {
+    /* @link https://www.ibm.com/plex/ */
+    font-family: 'IBM Plex Mono';
+    src: url('/fonts/7/ibm_plex_mono.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: optional;
+    /* auto | block | swap | fallback | optional */
+}
+
+:where(:root) {
+    font-family: 'IBM Plex Mono';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: italic;
+}
+
+/* counter on `h2` or on `section` */
+
+/* ./Typography */
+
+/* Composition */
+:where(main, .main) {
+    width: min(100% - 3rem, 65ch);
+    margin-inline: auto;
+}
+
+:where(article, .article)>*+* {
+    margin-top: 1em;
+}
+
+/* ./Composition */

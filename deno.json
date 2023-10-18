@@ -5,15 +5,27 @@
         "start": "deno run --allow-read --allow-net cmd/fluffy-oil/main.ts"
     },
     "imports": {
-        "$std/": "https://deno.land/std@0.203.0/",
-        "$hono/":"https://deno.land/x/hono@v3.7.5/",
-        "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.5/jsx/jsx-runtime.ts",
         "~/deps.ts": "./deps.ts",
         "~/lib/": "./lib/",
-        "~/jsx/": "./jsx/"
+        "~/jsx/": "./jsx/",
+        "~/scripts.ts": "./scripts/mod.ts",
+        "~/fonts.ts": "./fonts/mod.ts",
+        "~/stylesheets.ts": "./stylesheets/mod.ts",
+        "$gfm": "https://deno.land/x/gfm@0.2.5/mod.ts",
+        "$hono/": "https://deno.land/x/hono@v3.7.5/",
+        "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.5/jsx/jsx-runtime.ts",
+        "$x/":"https://deno.land/x/adoublef@0.0.9/",
+        "$std/": "https://deno.land/std@0.203.0/"
     },
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "hono/jsx"
+    },
+    "fmt": {
+        "useTabs": true,
+        "semiColons": true,
+        "singleQuote": false,
+        "indentWidth": 4,
+        "lineWidth": 120
     }
 }
