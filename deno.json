@@ -8,13 +8,14 @@
         "~/deps.ts": "./deps.ts",
         "~/lib/": "./lib/",
         "~/jsx/": "./jsx/",
+        "~/blog.ts": "./blog/mod.ts",
         "~/scripts.ts": "./scripts/mod.ts",
         "~/fonts.ts": "./fonts/mod.ts",
         "~/stylesheets.ts": "./stylesheets/mod.ts",
         "$gfm": "https://deno.land/x/gfm@0.2.5/mod.ts",
         "$hono/": "https://deno.land/x/hono@v3.7.5/",
         "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.5/jsx/jsx-runtime.ts",
-        "$x/":"https://deno.land/x/adoublef@0.0.9/",
+        "$x/": "https://deno.land/x/adoublef@0.0.9/",
         "$std/": "https://deno.land/std@0.203.0/"
     },
     "compilerOptions": {
