@@ -1,22 +1,20 @@
-import { Hono, etag, cors } from "~/deps.ts";
-import { serve } from "~/lib/serve.ts";
-import { serveStatic } from "~/lib/serve_static.ts";
+import { cors, etag, Hono, serve } from "~/deps.ts";
 import { handleIndex } from "./handle_index.tsx";
-import { handleBlog } from "./handle_blog.tsx";
+import { fonts } from "~/fonts.ts";
+import { scr } from "~/scripts.ts";
+import { css } from "~/stylesheets.ts";
+import { blog } from "~/blog.ts";
 
-if (
-    import.meta.main
-) {
-    const app = new Hono()
-        .use("*", etag({ weak: true }))
-        .use("*", cors());
-
-    app.get("/", handleIndex());
-    app.get("/blog", handleBlog());
-
-    app.use("/stylesheets/*", serveStatic({ root: "stylesheets/", replace: /^\/stylesheets/ }));
-    app.use("/scripts/*", serveStatic({ root: "scripts/", replace: /^\/scripts/ }));
-    app.use("/fonts/*", serveStatic({ root: "fonts/", replace: /^\/fonts/ }));
-
-    await serve(app, { port: 4507 });
+if (import.meta.main) {
+	const app = new Hono();
+	app.use("*", etag({ weak: true }));
+	app.use("*", cors());
+	app.get("/", handleIndex());
+	{
+		app.route("/blog", blog);
+		app.route("/scripts", scr);
+		app.route("/stylesheets", css);
+		app.route("/fonts", fonts);
+	}
+	await serve(app, { port: 4507 });
 }

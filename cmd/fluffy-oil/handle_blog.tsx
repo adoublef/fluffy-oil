@@ -1,56 +1,46 @@
-import { Handler } from "~/deps.ts";
-import { Html } from "~/jsx/dom/html.tsx";
+import { Handler, markdown } from "~/deps.ts";
+import { Head, Html, Font, Stylesheet } from "~/jsx/dom/mod.ts";
+import { getBlog } from "../../blog/fs/get_blog.ts";
 
 // http://html5doctor.com/the-article-element/
 export function handleBlog(): Handler {
-    return c => {
+    return async (c) => {
+        const blog = await getBlog("first-blog-post");
+
+        const head = (
+            <Head>
+                <title>{blog.title}</title>
+                <Font href="/fonts/7/ibm_plex_mono.woff2" />
+                <Font href="/fonts/4/ibm_plex_mono.woff2" />
+                <Stylesheet href="/stylesheets/blog.css" />
+            </Head>
+        );
+
         return c.html(
-            <Html head={{ title: "Welcome" }}>
+            <Html head={head}>
                 <header>
-                    <nav>
-                        <ul>
-                            <li><a href="/" aria-current="page">Home</a></li>
-                            <li>
-                                <button type="button" aria-expanded="true" aria-controls="options"
-                                    _="on click toggle @hidden on #menu then if target's @aria-expanded is 'true' set target's @aria-expanded to 'false' else set target's @aria-expanded to 'true'">More</button>
-                                <ul id="menu" hidden>
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="#">About</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                    <h1>{blog.title}</h1>
+                    <time pubdate="pubdate">{blog.publishedAt.toLocaleDateString("en-us", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}</time>
                 </header>
                 <main>
-                    <article id="article">
-                        <header>
-                            <hgroup>
-                                <h1>Heading 1</h1>
-                                <h2>Just a pure semantic HTML markup, without classes</h2>
-                            </hgroup>
-                            <p>Published: <time pubdate datetime="2009-10-09">9th October, 2009</time></p>
-                        </header>
-
-                        <section>
-                            <h2>Red Delicious</h2>
-                            <p>These bright red apples are the most common found in many supermarkets...</p>
-                        </section>
-
-                        <section>
-                            <h2>Granny Smith</h2>
-                            <p>These juicy, green apples make a great filling for apple pies...</p>
-                        </section>
-                    </article>
-                    {/* <!-- ./ Article--> */}
+                    <article
+                        dangerouslySetInnerHTML={{ __html: markdown(blog.content) }}
+                    />
                 </main>
                 <footer>
-                    {/* <!-- https://www.realtimecolors.com/ --> */}
                     <small hx-boost={false}>
-                        Powered by <a href="https://deno.com">Deno</a>.
-                        Source code on <a href="https://github.com/adoublef/fluffy-oil">GitHub</a>
+                        Powered by{" "}
+                        <a href="https://deno.com">Deno</a>. Source code on{" "}
+                        <a href="https://github.com/adoublef/fluffy-oil">
+                            GitHub
+                        </a>
                     </small>
                 </footer>
-            </Html>
+            </Html>,
         );
     };
 }

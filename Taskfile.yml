@@ -1,10 +1,20 @@
 version: 3
 
+dotenv:
+  - .env
+
 tasks:
+  default:
+    desc: List available task commands
+    cmds:
+      - task --list-all
+
   cache:
+    desc: Update the cache store
     cmd: deno cache deps.ts 
 
   dev:
+    desc: Run application locally
     deps:
       - cache
     cmd: deno task start --watch=stylesheets,fonts
@@ -13,16 +23,24 @@ tasks:
     cmds:
       - infisical secrets --env=dev --path=fluffy-oil {{.CLI_ARGS}}
 
+  fmt:
+    desc: Format source code, excluding the script directory containing bundled client code
+    cmds:
+      - deno fmt --ignore=scripts/
+
   img:
+    desc: Run the app as a docker container
     cmds: 
       - docker build -t fluffy-oil .
       - docker run --rm -p 4507:4507 -d fluffy-oil
   
   htmx:
+    desc: Fetch latest versions of Htmx
     cmds:
       - curl -L -o scripts/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
       - curl -L -o scripts/hyperscript.min.js https://unpkg.com/hyperscript.org@latest/dist/_hyperscript.min.js
 
   woff:
+    desc: Convert font formates from `tff` to `woff2`
     cmds:
       - ./bin/woff2_compress {{.CLI_ARGS}}
